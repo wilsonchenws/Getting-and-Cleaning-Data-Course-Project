@@ -24,10 +24,11 @@ The `run_analysis.R` file is the R code to implement above operation.(Although n
 
 2. To identify which features ( measurement of mean and standard deviation). After carefully reading features_info.txt, we can know that these mean-related measurements must contain string "std", and standard deviation measurement must contain char "std". Thus I  and use grep function to list out every feature contain either "mean" or "std".
 
-3. We are ready to complete a series of operation through power dplyr library and thanks to "%>%" operators. First we use select function to extract columns in our interest. (Index comes from grep function.), use mutate function to add subject and activity column. Also recode function was used to use descriptive activity name to name the activities in data set.
+3. Combining rbind and cbind function, I merged training set and testing set and also added subject column. 
 
-4. Complete same operation for test set.
+4. I performed  a series of operation through power dplyr library and thanks to "%>%" operators. First we use select function to extract columns in our interest. (Index comes from grep function.), use mutate function to add activity column whiched is recoded in  use descriptive activity name via recode_factor function in dlypr library.
 
-5. Use rbind to merge training set and test set.
+
+5. Use melt to create a long-formated dataframe then use dcast function to turn it back to wide-formated dataframe. In this case, I pass mean as the argument of fun_aggregate, so I simplified each observation with only mean.
 
 6. Output final dataset into a csv file use write.csv funciton.
