@@ -20,7 +20,7 @@ name_list <- feature_info[feature_index,2]
 # Recode function to rename activity value into more descriptive name.
 train_df <- train_data_df %>%
             select(all_of(feature_index)) %>%
-            mutate(SUBJECT = train_subject_df,activity = recode_factor(train_activity_df$V1,
+            mutate(SUBJECT = train_subject_df$V1,activity = recode_factor(train_activity_df$V1,
                                             '1' = "WALKING",
                                             '2' = "WALKING_UPSTAIRS",
                                             '3' = "WALKING_DOWNSTAIRS",
@@ -34,7 +34,7 @@ train_df <- train_df[,c(80,81,1:79)]
 #repeat above code for test_set
 test_df <- test_data_df %>%
            select(all_of(feature_index)) %>%
-           mutate(SUBJECT = test_subject_df,activity = recode_factor(test_activity_df$V1,
+           mutate(SUBJECT = test_subject_df$V1,activity = recode_factor(test_activity_df$V1,
                                             '1' = "WALKING",
                                             '2' = "WALKING_UPSTAIRS",
                                             '3' = "WALKING_DOWNSTAIRS",
