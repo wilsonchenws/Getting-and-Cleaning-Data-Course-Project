@@ -33,14 +33,14 @@ train_df <- train_df[,c(80,81,1:79)]
 
 #repeat above code for test_set
 test_df <- test_data_df %>%
-    select(all_of(feature_index)) %>%
-    mutate(SUBJECT = test_subject_df,activity = recode_factor(test_activity_df$V1,
-                                                               '1' = "WALKING",
-                                                               '2' = "WALKING_UPSTAIRS",
-                                                               '3' = "WALKING_DOWNSTAIRS",
-                                                               '4' = "SITTING",
-                                                               '5' = "STANDING",
-                                                               '6' = "LAYING"
+           select(all_of(feature_index)) %>%
+           mutate(SUBJECT = test_subject_df,activity = recode_factor(test_activity_df$V1,
+                                            '1' = "WALKING",
+                                            '2' = "WALKING_UPSTAIRS",
+                                            '3' = "WALKING_DOWNSTAIRS",
+                                            '4' = "SITTING",
+                                            '5' = "STANDING",
+                                            '6' = "LAYING"
     ))
 #reorder column sequence (Making subject and activty 1st and 2nd column)
 test_df <- test_df[,c(80,81,1:79)]
